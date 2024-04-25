@@ -1,21 +1,42 @@
-<h1 style="text-align: center;"> {{titulo}} </h1>
-
 <div class="container">
-  <form action="">
-    <input type="text" name="nombre" [(ngModel)]="nombre" >
+  <div class="col">
+    <h1 style="text-align: center;"> {{titulo}} </h1>
     <br>
-    <input type="text" name="apellido" [(ngModel)]="apellido" >
-    <br>
-    <input type="submit" value="Registrar" class="btn btn-danger" (click)="registrarUsuario()">
-    <br>
-  
-  </form>
+
+    <form class="form-group row">
+      <div class="form-group col-md-4">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="nombre">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control" [(ngModel)]="apellido">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="apellido">Cargo:</label>
+        <input type="text" name="cargo" id="cargo" placeholder="Cargo" class="form-control" [(ngModel)]="cargo">
+      </div>
+      <div class="col">
+        <input type="submit" value="Registrar" class="btn btn-danger" (click)="registrarUsuario()">
+      </div>
+      <br>    
+    </form>
+
+  </div>
 </div>
 
+
+<br>
 <br>
 
 <div class="container">
-  <p *ngIf="registrado; else sinRegistrar" > {{mensaje}} </p>
+  <!-- <p *ngIf="registrado; else sinRegistrar" > {{mensaje}} con el nombre de {{nombre}} {{apellido}}
+    y con el cargo: <span [ngStyle]="{color: cargo=='director' ? 'red' : 'black'}">{{cargo}}</span> 
+  </p> -->
+
+  <p *ngIf="registrado; else sinRegistrar" > {{mensaje}} con el nombre de {{nombre}} {{apellido}}
+    y con el cargo: <span [ngClass]="{director:cargo=='director'}" >{{cargo}}</span> 
+  </p>
   
   <ng-template #sinRegistrar>
     <p>Nadie Registrado</p>

@@ -11,6 +11,7 @@ export class AppComponent {
   registrado: boolean = false;
   nombre: string = "";  
   apellido: string = "";
+  cargo: string = "";
   entradas: Array<{titulo:string}>;
 
   constructor(){
@@ -26,7 +27,7 @@ export class AppComponent {
 
   registrarUsuario(){
     this.registrado = true;
-    this.mensaje = `Usuario ${this.nombre} ${this.apellido} se registrado con éxito`;
+    this.mensaje = "Usuario registrado con éxito";
   }
 
 }
